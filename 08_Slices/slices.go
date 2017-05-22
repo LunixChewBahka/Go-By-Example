@@ -4,9 +4,7 @@ import (
 	"fmt"
 )
 
-func main() {
-
-	// emp: [  ]
+func main() { // emp: [  ]
 	s := make([]string, 3)
 	fmt.Println("emp: ", s)
 
@@ -63,7 +61,7 @@ func main() {
 
 	// These are the first two rows.
 	row1 := []int{1, 2, 3}
-	row2 := []int{4, 5, 6}
+	row2 := []int{5, 6, 7}
 
 	// Append each row to the two-dimensional slice.
 	values = append(values, row1)
@@ -84,4 +82,34 @@ func main() {
 	// Display entire slice.
 	fmt.Println("Values")
 	fmt.Println(values)
+
+	// Create a two-dimensional array
+	letters := [2][2]string{}
+
+	// Assign all elements in 2 by 2 array
+	letters[0][0] = "a"
+	letters[0][1] = "b"
+	letters[1][0] = "c"
+	letters[1][1] = "d"
+
+	// Display result
+	fmt.Println(letters)
+
+	// Nested string slices using range
+	// Create an empty slice of slices
+	animals := [][]string{}
+
+	row1 := []string{"fish", "shark", "eel"}
+	row2 := []string{"bird"}
+	row3 := []string{"lizard", "salamander"}
+
+	animals = append(animals, row1)
+	animals = append(animals, row2)
+	animals = append(animals, row3)
+
+	// Loop over slices in animals
+	for i := range animals {
+		fmt.Printf("Row: %v\n", i)
+		fmt.Println(animals[i])
+	}
 }
