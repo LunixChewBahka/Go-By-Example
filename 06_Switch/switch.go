@@ -49,4 +49,18 @@ func main() {
 	whatAmI(true)
 	whatAmI(1)
 	whatAmI("hey")
+
+	command := "close"
+
+	switch command {
+	case "create":
+		fmt.Println("Creating...")
+	case "open":
+		fmt.Println("Opening...")
+	case "close":
+		fmt.Println("Closing...")
+	default:
+		fmt.Println("Unrecognized command")
+	}
+	// result should print "Closing..."
 }
