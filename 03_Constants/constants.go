@@ -22,6 +22,9 @@ func main() {
 	fmt.Println(math.Sin(n))
 	fmt.Println(math.Sin(z))
 
+	/*
+		constants always needs to be initialized
+	*/
 	const goldenRatio float64 = 1.618034
 	fmt.Println(goldenRatio)
 
@@ -33,4 +36,8 @@ func main() {
 	)
 
 	fmt.Println(First, Second, Third)
+
+	// attempt to change the constant value
+	// error cannot assign to goldenRatio
+	// goldenRatio = 9.321312312
 }
