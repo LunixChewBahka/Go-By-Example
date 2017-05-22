@@ -97,19 +97,40 @@ func main() { // emp: [  ]
 
 	// Nested string slices using range
 	// Create an empty slice of slices
-	animals := [][]string{}
+	//animals := [][]string{}
 
-	row1 := []string{"fish", "shark", "eel"}
-	row2 := []string{"bird"}
-	row3 := []string{"lizard", "salamander"}
+	//row1 := []string{"fish", "shark", "eel"}
+	//row2 := []string{"bird"}
+	//row3 := []string{"lizard", "salamander"}
 
-	animals = append(animals, row1)
-	animals = append(animals, row2)
-	animals = append(animals, row3)
+	//animals = append(animals, row1)
+	//animals = append(animals, row2)
+	//animals = append(animals, row3)
 
-	// Loop over slices in animals
-	for i := range animals {
-		fmt.Printf("Row: %v\n", i)
-		fmt.Println(animals[i])
-	}
+	//// Loop over slices in animals
+	//for i := range animals {
+	//fmt.Printf("Row: %v\n", i)
+	//fmt.Println(animals[i])
+	//}
+	phrase1 := "The quick brown fox"
+	phrase2 := " jumps over the lazy dog"
+
+	fmt.Println(phrase1 + phrase2)
+
+	// Slicing strings
+	// 3 is non-inclusive
+	aSliceOfText := phrase1[1:3]
+	fmt.Println(aSliceOfText)
+
+	noun1 := phrase1[16:]
+	fmt.Println(noun1)
+
+	noun2 := phrase2[21:]
+	fmt.Println(noun2)
+
+	character := phrase1[0]
+	// it returns the ascii code 84 instead of "T"
+	fmt.Println(character)
+	// convert the result to a string to get the actual "T"
+	fmt.Println(string(character))
 }
