@@ -27,4 +27,40 @@ func main() {
 		// 9 doesn't have any multiple digits
 		fmt.Println(num, "has multiple digits")
 	}
+
+	condition := 5 > 2
+
+	if condition {
+		fmt.Println("5 is inded greater than 2")
+	} else {
+		fmt.Println("This condition is false!")
+	}
+
+	// && AND example; statement && statement
+	/*
+		t	f	r
+		0	0   0
+		0	1	0
+		1	0	0
+		1	1	1
+	*/
+	if 6 > 3 && 5 > 8 {
+		fmt.Println("Workded")
+	} else {
+		fmt.Println("Didn't work")
+	}
+
+	// || OR statement || statement
+	/*
+		t	f	r
+		0	0	0
+		0	1	1
+		1	0	1
+		1	1	1
+	*/
+	if 6 > 3 || 5 > 8 {
+		fmt.Println("Worked")
+	} else {
+		fmt.Println("Didn't work")
+	}
 }
