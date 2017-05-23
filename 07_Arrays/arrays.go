@@ -34,4 +34,8 @@ func main() {
 		}
 	}
 	fmt.Println("2d: ", twoD)
+
+	// let the compiler count it for you :)
+	b_array := [...]string{"Penn", "Teller", "Manager", "Floor Manager", "Clerk"}
+	fmt.Println(len(b_array))
 }

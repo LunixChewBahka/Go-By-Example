@@ -5,6 +5,7 @@ import (
 )
 
 func main() { // emp: [  ]
+
 	s := make([]string, 3)
 	fmt.Println("emp: ", s)
 
@@ -152,4 +153,62 @@ func main() { // emp: [  ]
 	slice_r[2] = "what's up"
 
 	fmt.Println(slice_r[1])
+
+	// example of a slice
+	// slice_letter := []string{"a", "b", "c", "d"}
+
+	// declare a variable called "sliceS" and give it a slice of bytes as type
+	var sliceS []byte
+	sliceS = make([]byte, 5, 5)
+	// simply prints the entirety of the slice
+	// [0 0 0 0 0]
+	fmt.Println(sliceS)
+	fmt.Println(len(sliceS))
+	// kind of the same buy wait there's more....
+	fmt.Println(cap(sliceS))
+
+	slice_of_b := []byte{'g', 'o', 'l', 'a', 'n', 'g'}
+	fmt.Println(slice_of_b[1:4])
+	fmt.Println(string(slice_of_b[1:4]))
+	fmt.Println(slice_of_b[:2])
+	fmt.Println(string(slice_of_b[:2]))
+	fmt.Println(slice_of_b[2:])
+	fmt.Println(string(slice_of_b[2:]))
+
+	slice_of_x := [...]string{"Лайка", "Белка", "Стрелка"}
+	fmt.Println(slice_of_x)
+
+	slice_of_d := []byte{'r', 'o', 'a', 'd'}
+	slice_of_e := slice_of_d[2:]
+	fmt.Println(slice_of_e)
+	fmt.Println(string(slice_of_e))
+	slice_of_e[1] = 'm'
+	fmt.Println(slice_of_e)
+	fmt.Println(string(slice_of_e))
+	fmt.Println(slice_of_d)
+	fmt.Println(string(slice_of_d))
+
+	s = s[2:4]
+	fmt.Println(s)
+	s = s[:cap(s)]
+	fmt.Println(s)
+
+	increase_slice()
+}
+
+func increase_slice() {
+	var s []byte
+	// or s := make([]byte, 5)
+	s = make([]byte, 5, 5)
+	// some funky stuff going on around here
+	// let us increase the capacity of a slice
+	slice_of_t := make([]byte, len(s), (cap(s)+1)*2)
+	//for i := range s {
+	//slice_of_t[i] = s[i]
+	//}
+	// instead of using for, we have a builtin function which is:
+	// func copy(dst, src []T) int
+	copy(slice_of_t, s)
+	s = slice_of_t
+	fmt.Println(s)
 }
