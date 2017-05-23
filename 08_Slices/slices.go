@@ -211,4 +211,40 @@ func increase_slice() {
 	copy(slice_of_t, s)
 	s = slice_of_t
 	fmt.Println(s)
+
+	// append using the long version
+	slice_of_p := []byte{2, 3, 5}
+	slice_of_p = AppendByte(slice_of_p, 7, 11, 13)
+	fmt.Println(slice_of_p)
+
+	// append using the builtin function
+	// makes sense! ^________^
+	// this one adds a slice to the end of an existing one
+	slice_of_p2 := make([]int, 1)
+	fmt.Println(slice_of_p2)
+	slice_of_p2 = append(slice_of_p2, 1, 2, 3, 4)
+	fmt.Println(slice_of_p2)
+
+	// To append one slice to another, use "..." to expand the second argument to
+	// list of args; in short slice + slice
+	a_slice := []string{"John", "Paul"}
+	b_slice := []string{"George", "Ringo", "Pete"}
+	a_slice = append(a_slice, b_slice...) // equivalent to "append(a, b[0], b[1], b[2])"
+	fmt.Println(a_slice)
+}
+
+// long version of an already existing one from the builtin library
+// func append([]type, ...type) []type
+func AppendByte(slice []byte, data ...byte) []byte {
+	m := len(slice)
+	n := m + len(data)
+	if n > cap(slice) { // if necessary, reallocate
+		// allocate double what's needed, for future growth
+		newSlice := make([]byte, (n+1)*2)
+		copy(newSlice, slice)
+		slice = newSlice
+	}
+	slice = slice[0:n]
+	copy(slice[m:n], data)
+	return slice
 }
