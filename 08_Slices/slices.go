@@ -133,4 +133,23 @@ func main() { // emp: [  ]
 	fmt.Println(character)
 	// convert the result to a string to get the actual "T"
 	fmt.Println(string(character))
+
+	// slices are flexible dynamic lists
+	// slices are dynamic; you can delete / append
+	// arrays have a fixed length
+
+	slice_s := []string{"Yoh", "test", "init"}
+	slice_r := make([]string, 3)
+
+	// There is nothing in here output : []
+	fmt.Println(slice_s)
+	// There is some space being allocated : [    ]
+	fmt.Println(slice_r)
+
+	// simply adds value to each element in the slice
+	slice_r[0] = "hello"
+	slice_r[1] = "hi"
+	slice_r[2] = "what's up"
+
+	fmt.Println(slice_r[1])
 }
