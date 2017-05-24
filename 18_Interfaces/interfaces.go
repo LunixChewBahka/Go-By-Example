@@ -28,7 +28,7 @@ type circle struct {
 
 /*
 
-To impletement an interface in Go, we just need to impletement all the methods
+To impletement an interface in Go, we just need to implement all the methods
 in the interface. Here we implement geometry on rects.
 
 */
