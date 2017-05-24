@@ -4,12 +4,13 @@ import (
 	"fmt"
 )
 
-func main() {
+/*
+Variadic Functions
 
-	r := add(1, 22, 333, 4444, 5555, 666666, 7777777)
-	fmt.Println(r)
+Variadic functions can be called with any number of trailing arguments. For
+example, fmt.Println is a commin variadic function.
 
-}
+*/
 
 // expects multiple arguments to be supplied to the parameters
 // in this case there is only 1 parameter and that is the ...int
@@ -26,4 +27,26 @@ func add(nums ...int) int {
 	}
 	// return the total amount
 	return total
+}
+
+func sum(nums ...int) {
+	fmt.Print("values:", nums, " ")
+	total := 0
+	for _, num := range nums {
+		total += num
+	}
+	fmt.Println("=", total)
+}
+
+func main() {
+
+	sum(1, 2)
+	sum(1, 2, 3)
+
+	nums := []int{1, 2, 3, 4}
+	sum(nums...)
+
+	r := add(1, 22, 333, 4444, 5555, 666666, 7777777)
+	fmt.Println(r)
+
 }
