@@ -32,6 +32,15 @@ func (m *Mutatable) Mutate() {
 	m.b = 7
 }
 
+// go:inline
+func increment(inc int) {
+
+	// Increment the "value of" inc
+	inc++
+	fmt.Println("inc:\tValue of [", inc, "]\tAddr Of [", &inc, "]")
+
+}
+
 func main() {
 
 	d := &Dog{}
@@ -51,4 +60,13 @@ func main() {
 	// passing the value to a pointer @ line 30
 	fmt.Println(m)
 
+	// Declare variable of type int with a value 10
+	count := 10
+
+	// Display the "value of" and "address of " count
+	fmt.Println("count:\tValue Of [", count, "]\tAddr Of [", &count, "]")
+
+	// Pass the "value of" the count
+	increment(count)
+	fmt.Println("count:\tValue Of [", count, "]\tAddr Of [", &count, "]")
 }
