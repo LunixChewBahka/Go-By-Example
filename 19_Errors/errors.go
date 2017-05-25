@@ -54,6 +54,13 @@ func f2(arg int) (int, error) {
 
 func main() {
 
+	/*
+
+		The two loops below test out each of our error-returning functions. Note that
+		the use of an inline error check on the if line is a commin idiom in Go code.
+
+	*/
+
 	for _, i := range []int{7, 42} {
 		if r, e := f1(i); e != nil {
 			fmt.Println("f1 failed:", e)
@@ -69,6 +76,13 @@ func main() {
 			fmt.Println("f2 worked:", r)
 		}
 	}
+
+	/*
+
+		If you want to programmatically use the data in a custom error, you'll need
+		to get the error as an instance of custom error type via type assertion.
+
+	*/
 
 	_, e := f2(42)
 	if ae, ok := e.(*argError); ok {
