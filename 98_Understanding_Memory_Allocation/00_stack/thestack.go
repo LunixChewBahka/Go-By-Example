@@ -8,16 +8,21 @@ package main
 
 The Stack
 
-- Represents the "state" of execution
-- Composed of stack frames
-- Each frame holds a function call and lcoal variables
-- Last in First Out
+^ Represents the "state" of execution
+^ Composed of stack frames
+^ Each frame holds a function call and lcoal variables
+^ Last in First Out
 
 What's wrong with it?
-** One stack = one execution state
-** Stacks usually have a pre-defined capacity
-** need to duplicate the entire model for concurrency (bad for concurrency)
+- One stack = one execution state
+- Stacks usually have a pre-defined capacity
+- need to duplicate the entire model for concurrency (bad for concurrency)
 ---- if you call too many functions and go deep you are going to have a stackoverflow
+
+Go's Solution:
++ One heap, one stack per goroutine
++ Elastic stacks
++ Stacks borrow memory from the heap
 
 */
 
