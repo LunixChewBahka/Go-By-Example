@@ -54,6 +54,37 @@ func swap_num(a, b *int) {
 	*a, *b = *b, *a
 }
 
+// func foo receives the address of ii (or &ii) then points to p which contains
+// the value of *p + 3
+func foo(p *int) {
+	*p += 3 // *p = *p + 3 or *p = 9 + 3; which equates to 12
+}
+
+type Cat struct {
+	Name  string
+	Lives int
+	Age   float32
+}
+
+func killCat(c *Cat) {
+	c.Lives--
+}
+
+func foo2(a *[4]int) {
+	a[0] = 3
+	a[1] = 222
+	a[2] = 333
+	a[3] = 4444
+}
+
+func max(a *int, b *int, p **int) {
+	if *a > *b {
+		*p = a
+	} else {
+		*p = b
+	}
+}
+
 func main() {
 
 	/*
@@ -104,4 +135,36 @@ func main() {
 	fmt.Println("zeroptr:", i)
 
 	fmt.Println("pointer:", &i)
+
+	var xx int = 5
+	var yy *int // pointer to int
+	yy = &xx    // &x returns pointer
+	fmt.Println("The value of the address the pointer is point to:", yy)
+
+	zz := *yy // (dereference y to get the value of x)A
+	fmt.Println("Dereferenced Value / Get the value on that Address:", zz)
+	xx = 7
+	fmt.Println("Modify the original Value", xx)
+	zz = *yy
+	fmt.Println("Updated value of xx:", zz)
+
+	var ii = 9
+	foo(&ii) // pass the address of ii not the value
+	jj := ii // should be 12 right?
+	fmt.Println("Value is passed to a function:", jj)
+
+	cc := Cat{Name: "Arki", Lives: 9, Age: 4.3}
+	killCat(&cc)
+	//xc := cc.Lives
+	fmt.Println(cc.Lives)
+
+	var nums [4]int
+	foo2(&nums)
+	xn := nums[3] // 3?
+	fmt.Println(xn)
+
+	gg := 3
+	hh := 5
+	var kk *int
+	max(&gg, &hh, &kk)
 }

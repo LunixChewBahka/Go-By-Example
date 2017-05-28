@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/lunixchewbahka/Go_By_Example/99_Scope/02_package_scope/math"
 )
 
 // Global var or package level
@@ -14,6 +15,11 @@ func main() {
 	fmt.Println(iron) // This works
 	fmt.Println(gold) // This works
 
+	xs := []float64{11, 22, 33, 44}
+	avg := math.Average(xs)
+	fmt.Println(avg)
+
+	// fmt.Println(characters.Sheriff())
 }
 
 func anotherFunction() {
