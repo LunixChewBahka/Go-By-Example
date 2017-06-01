@@ -43,9 +43,9 @@ func main() {
 	v.Scale(2)
 	ScaleFunc(&v, 10)
 
-	p := &Vertex{4, 3}
-	p.Scale(3)
-	ScaleFunc(p, 8)
+	p := &Vertex{3, 4}
+	p.Scale(2)
+	ScaleFunc(p, 10)
 
 	fmt.Println(v, p)
 }
